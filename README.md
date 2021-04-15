@@ -9,3 +9,19 @@ Pull Request 前請確認以下事項：
 * 檔案放在自己學號的目錄下
 * 標題以「班級座號、學號、姓名」作為開頭
 * 其他說明事項可以在下面補充
+---
+* sample input:<p>
+hyundai<p>
+honda
+* sample output:<p>
+3<p>
+* sample input:<p>
+kitten<p>
+sitting
+* sample output:<p>
+3
+* sample input:<p>
+elephant<p>
+relevant
+* sample output:<p>
+3
