@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int dp(string m, string n) {
+	int arr[m.length() + 1][n.length() + 1];
+	for (int i = 0; i < m.length() + 1; i++) {
+		arr[i][0] = i;
+	}
+	for (int i = 0; i < n.length() + 1; i++) {
+		arr[0][i] = i;
+	}
+	for (int i = 0; i < m.length(); i++) {
+		for (int j = 0; j < n.length(); j++) {
+			if (m[i] == n[j]) {
+				arr[i + 1][j + 1] = arr[i][j];
+			} else {
+				arr[i + 1][j + 1] = min(arr[i][j + 1] + 1,min(arr[i + 1][j] + 1, arr[i][j] + 1));
+			}
+		}
+	}
+	for (int i = 0; i < m.length() + 1; i++) {
+		for (int j = 0; j < n.length() + 1; j++) {
+			cout << arr[i][j] << " ";
+		}
+		cout << "\n";
+	}
+	cout << "ans:" << arr[m.length()][n.length()];
+	return 0;
+}
+
+int main() {
+	string a,b;
+	cin >> a >> b;
+	dp(a,b);
+}
+// 萊文斯坦距離
+// dp[i + 1, j + 1] = min(dp[i][j + 1] + 1, dp[i + 1][j] + 1, dp[i][j] + check)
+// check a[i] == b[j] // if check = 0  // else check = 1
